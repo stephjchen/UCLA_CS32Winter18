@@ -69,4 +69,3 @@ StudentWorld* getWorld();
 
 
 The functionality of each game object differs depending its nature (i.e. whether the object suffers damage, fires attack, makes sound, etc), and their detailed implementation can be found in the aforementioned files.
-
