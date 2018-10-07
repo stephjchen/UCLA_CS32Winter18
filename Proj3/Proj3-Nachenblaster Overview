@@ -30,7 +30,6 @@ virtual int move();
     
 virtual void cleanUp();
 
-
 in StudentWorld.cpp.
 
 StudentWorld initializes the game world when the game starts and ensures proper appearance and removal of each object 
@@ -56,7 +55,6 @@ double getSize() const;
     
 double getRadius() const; 
 
-
 I designed the Actor class as an abstract base class so that all game objects can be derived from this class. The Actor class 
 contains the following functions:
 
@@ -80,7 +78,6 @@ bool isInBound(double x, double y) const;
 
 StudentWorld* getWorld(); 
 //returns a pointer to the world the actor lives in
-
 
 The functionality of each game object differs depending its nature (i.e. whether the object suffers damage, fires attack, makes
 sound, etc), and their detailed implementation can be found in the aforementioned files.
