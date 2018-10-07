@@ -1,0 +1,27 @@
+This is the final project I wrote for my CS32 class. It utilizes 5 classes to crack a simple substitution cipher entered by the user. Because CS32 is a class on data structure and algorithm analysis, I also included Big-O analysis and explanation for my functions throughout the program.
+
+Brief Description of Each Class:
+
+MyHash:
+MyHash is a map class template that implements an open hash table without using any STL container classes. I've implemented the hash table using an array of pointers to nodes.
+
+The 4 classes below utilize pimpl idiom; My assignment was to complete the implementations for the corresponding "__Impl" class. For example, the "Tokenizer" class would have an opaque pointer to a class called "TokenizerImpl" class that I have to implement. Detailed implementations of the embedded classes can be found in "Tokenizer.cpp", "Wordlist.cpp", "Translator.cpp", and "Decrypter.cpp".
+
+Tokenizer:
+Tokenizer takes a sentence and cuts it into words. I used an unordered set of char to maintain a set of separators of a sentence (i.e. punctutaions, space, etc) to parse a string (i.e. a sentence) into a vector of tokens (words in a sentence).
+
+Wordlist:
+Wordlist loads the file "wordlist.txt" consisting of 109,647 words. In cracking a cipher, Wordlist is used to group words by their patterns. For example, words like ‘GOOGLE’ or ‘TOOTHY’ have the letter pattern "122134". For my assignment, I am not allowed to use STL containers as Wordlist's data members. I thus implemented Wordlist using MyHash as a private data member to associate a letter pattern with a vector of words with such letter pattern.
+
+Translator:
+Translator maintains partially filled or completely filled mapping of the translation to a cipher. My assignment was to implement a stack of mappings without using the STL container stack. I used a vector of STL maps to store different mappings. This vector serves as a stack because the user access the last element in the vector to get the most updated mapping of the cipher.
+
+Decrypter:
+Finally, a Decrypter utilizes a translator, wordlist, and tokenizer to process a cipher and list all possible valid decryptions in alphabetical order. I am in charge of designing the implementations to the funtions:
+bool load(std::string filename); std::vectorstd::string crack(const std::string& ciphertext);
+without using STL map or unordered_map classes.
+
+Bug:
+For the function DecrypterImpl::crack(), my implementation runs into an infinite recursion loop for this particular ciphertext.
+Xjzwq gjz cuvq xz huri arwqvudiy fuk ufjrqoq svquxiy. -Lzjk Nqkkqcy
+
